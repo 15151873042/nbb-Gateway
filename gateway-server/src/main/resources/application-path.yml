@@ -1,0 +1,18 @@
+###############################################################
+# 根据访问uri匹配调用对应服务
+###############################################################
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: 随便定义
+          uri: lb://service-A-app # 路由匹配成功后调用的url，lb表示负载均衡，service-A-app表示需要调用的服务名
+          predicates:
+            - name: Path # 表示predicate为PathRoutePredicateFactory
+              args:
+                patterns:
+                  - /serviceA/** # 如果请求url匹配/serviceA/**，则PathRoutePredicateFactory匹配成功
+          filters:
+            - name: StripPrefix # 表示filter为StripPrefixGatewayFilterFactory
+              args:
+                parts: 1 # 表示删除url中第一节前缀，即/serviceA，这样访问实际服务的时候/serviceA前缀会被去除
