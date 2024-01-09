@@ -1,6 +1,6 @@
 package com.nbb.gateway.server;
 
-import framework.springcloudloadbalancer.MyLoadBalancerClientConfiguration;
+import com.nbb.gateway.server.framework.springcloudloadbalancer.MyLoadBalancerClientConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

@@ -1,4 +1,4 @@
-package framework.springcloudloadbalancer;
+package com.nbb.gateway.server.framework.springcloudloadbalancer;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.cloud.nacos.NacosServiceInstance;

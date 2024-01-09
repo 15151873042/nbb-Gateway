@@ -1,4 +1,4 @@
-package framework.springcloudloadbalancer;
+package com.nbb.gateway.server.framework.springcloudloadbalancer;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import org.springframework.beans.factory.ObjectProvider;
