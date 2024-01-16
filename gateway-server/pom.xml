@@ -19,6 +19,7 @@
     </properties>
 
         <dependencies>
+            <!-- 网关需要去注册中心候取服务列表 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -39,6 +40,30 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <scope>test</scope>
+            </dependency>
+
+            <!-- gateway整合sentinel的依赖 -->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
+            </dependency>
+
+            <!-- gateway整合sentinel的依赖，配置SentinelGatewayFilter -->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
+            </dependency>
+
+            <!-- gateway整合sentinel dashboard的依赖，将本服务注册到sentinel dashboard -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            </dependency>
+
+            <!-- 通过nacos获取sentinel流控规则 -->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-datasource-nacos</artifactId>
             </dependency>
         </dependencies>
 

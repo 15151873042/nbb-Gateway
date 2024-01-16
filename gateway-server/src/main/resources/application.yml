@@ -6,6 +6,7 @@ spring:
         username: nacos
         password: nacos
         namespace: gateway
+        register-enabled: false # 当前网关服务可以不用注册到nacos，这里使用nacos是为了从nacos获取服务列表
   application:
     name: gateway-server-app
   profiles:

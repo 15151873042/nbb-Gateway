@@ -5,7 +5,7 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: 随便定义
+        - id: routeId01 #路由id，名称自定义
           uri: lb://service-A-app # 路由匹配成功后调用的url，lb表示负载均衡，service-A-app表示需要调用的服务名
           predicates:
             - name: Path # 表示predicate为PathRoutePredicateFactory

@@ -10,4 +10,4 @@ spring:
   application:
     name: service-A-app
 server:
-  port: 8000
+  port: 8013

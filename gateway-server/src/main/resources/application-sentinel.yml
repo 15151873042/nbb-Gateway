@@ -1,0 +1,27 @@
+###############################################################
+# 整合sentinel，通过sentinel dashboard对网关接口进行流控
+###############################################################
+
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: http://127.0.0.1:8849 # sentinel dashboard地址
+        client-ip: 127.0.0.1 # 当前服务注册到sentinel dashboard的ip
+        # port: 8720 # 当前服务接收sentinel dashboard下放流控规则的端口（不填写会自动生成一个）
+        heartbeat-interval-ms: 10000 # 当前服务向sentinel dashboard发送心跳的间隔（sentinel dashboard大约每1分钟检查服务是否健康，具体值还未验证）
+      log:
+        dir: d:\logs\gateway-server\ # sentinel日志输出地址
+      eager: true # 是否在服务启动的时候立刻将服务注册到sentinel dashboard
+
+      datasource:
+        aaa: # 这边名称随意
+          nacos: # 从nacos获取sentinel规则信息
+            server-addr: 127.0.0.1
+            data-id: sentinel.rule.flow # 流控规则的dataId（sentinel dashboards使用nacos存储规则配置）
+            group-id: ${spring.application.name}
+            namespace: sentinel
+            username: nacos
+            password: nacos
+            rule-type: flow # 规则类型 - 流控规则
